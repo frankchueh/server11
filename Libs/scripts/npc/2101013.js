@@ -15,7 +15,7 @@ function action(mode, type, selection) {
 		cm.dispose();
 	} else {
 	if (status == 0 && mode == 0) {
-		cm.sendNext("Aye...are you scared of speed or heights? You can't trust my flying skills? Trust me, I've worked out all the kinks!");
+		cm.sendNext("好吧...是因為你怕高和速度太快嗎? 還是你不相信我的飛行技術? 相信我, 100%沒問題的!");
 		cm.dispose();
 		return;
 	}
@@ -24,17 +24,17 @@ function action(mode, type, selection) {
 	else
 		status--;
 	if(status == 0){
-		cm.sendAcceptDecline("I don't know how you found out about this, but you came to the right place! For those that wandered around Nihal Desert and are getting homesick, I am offering a flight straight to Victorial Island, non-stop! Don't worry about the flying ship--it's only fallen once or twice! Don't you feel claustrophobic being in a long flight on that small ship? What do you think? Are you willing to take the offer on this direct flight?");
+		cm.sendAcceptDecline("我不曉得你從哪裡得知的, 但你來對了! 當你厭倦了納西沙漠和想念家鄉時, 我提供直接飛往維多利亞大陸的服務! 別擔心這個魔毯--他只有墜落一次...兩次而已! 你不覺得你做飛船已經做得很膩了嗎? 如何? 需要我的服務嗎?");
 	} else if(status == 1){
-		cm.sendAcceptDecline("Please remember two things. One, this line is actually for overseas shipping, so #rI cannot gurantee exactly which town you'll land#k. Two, since I am putting you in this special flight, it'll be a bit expensive. The service charge is #e#b10,000 mesos#n#k. There's a flight thats about to take off. Are you interested?");
+		cm.sendAcceptDecline("請記住兩件事. 第一, 這是一項橫跨大陸的飛行, 所以 #r我無法保證你會在哪個村莊登陸#k. 第二, 因為這個服務相當特殊, 所以他會有點貴. 總共要收費 #e#b10,000 楓幣#n#k. 你確定你要搭乘嗎?");
 	} else if(status == 2){
-		cm.sendNext("Okay, ready to takeoff~");
+		cm.sendNext("好!準備起飛~");
 	} else if(status == 3){
 		if(cm.getMeso() >= 10000){
 			cm.gainMeso(-10000);
 			cm.warp(towns[Math.floor(Math.random() * towns.length)]);
 		} else{
-			cm.sendNextPrev("Hey, are you short on cash? I told you you'll need #b10,000#k mesos to get on this.");
+			cm.sendNextPrev("嘿, 你是不是沒有錢啊? 你需要 #b10,000#k 楓幣 給我.");
 			cm.dispose();
 			}
 		}

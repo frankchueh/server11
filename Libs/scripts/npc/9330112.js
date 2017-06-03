@@ -17,9 +17,9 @@ function action(mode, type, selection) {
     }
     if (status == 0) {
 	if (cm.haveItem(5220000, 1)) {
-	    cm.sendYesNo("Do you want to use coupon?");
+	    cm.sendYesNo("你想要使用轉蛋券嗎?");
 	} else {
-	    cm.sendOk("you don't have coupon");
+	    cm.sendOk("你沒有轉蛋券");
 	    cm.safeDispose();
 	}
     } else if (status == 1) {
@@ -43,7 +43,7 @@ function action(mode, type, selection) {
 
 	if (item != -1) {
 	    cm.gainItem(5220000, -1);
-	    cm.sendOk("you gain #b#t" + item + "##i" + item + "##k");
+	    cm.sendOk("您獲得 #b#t" + item + "##i" + item + "##k");
 	} else {
 	    cm.sendOk("full bag");
 	}
