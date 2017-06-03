@@ -163,7 +163,7 @@ public class AdminCommand {
     }
     public static class saveall extends CommandExecute {
         private int p = 0;
-        public int execute(MapleClient c, String[] splitted) {      
+        public int execute(MapleClient c, String[] splitted) {
 			for (ChannelServer cserv : ChannelServer.getAllInstances()) {
 				for (MapleCharacter chr : cserv.getPlayerStorage().getAllCharacters()) {
 					p++;
@@ -843,7 +843,7 @@ public class AdminCommand {
             } else {
                 IItem item;
                 byte flag = 0;
-                flag |= ItemFlag.LOCK.getValue();
+                // flag |= ItemFlag.LOCK.getValue();
 
                 if (GameConstants.getInventoryType(itemId) == MapleInventoryType.EQUIP) {
                     item = ii.randomizeStats((Equip) ii.getEquipById(itemId));
@@ -2442,7 +2442,7 @@ public class AdminCommand {
             return 1;
         }
     }
-	
+
 	public static class PNPC extends CommandExecute {
 
         @Override
@@ -2456,7 +2456,7 @@ public class AdminCommand {
                 npc.setRx1(c.getPlayer().getPosition().x - 50);
                 npc.setFh(c.getPlayer().getMap().getFootholds().findBelow(c.getPlayer().getPosition()).getId());
                 npc.setCustom(true);
-				
+
                 try {
                     PreparedStatement ps = DatabaseConnection.getConnection().prepareStatement("INSERT INTO spawns ( idd, f, fh, cy, rx0, rx1, type, x, y, mid ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )");
                     ps.setInt(1, npcId);
@@ -2474,7 +2474,7 @@ public class AdminCommand {
                     System.err.println("SQL THROW");
                     SE.printStackTrace();
                 }
-				
+
                 c.getPlayer().getMap().addMapObject(npc);
                 c.getPlayer().getMap().broadcastMessage(MaplePacketCreator.spawnNPC(npc, true));
             } else {
