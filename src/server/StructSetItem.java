@@ -7,7 +7,8 @@ import java.util.Map;
 
 public class StructSetItem {
 
-    public byte completeCount, setItemID;
+    public byte completeCount;
+    public int setItemID;
     public Map<Integer, SetItem> items = new LinkedHashMap<Integer, SetItem>();
     public List<Integer> itemIDs = new ArrayList<Integer>();
 

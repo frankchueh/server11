@@ -60,7 +60,7 @@ public class Skill implements ISkill {
 
     public static final Skill loadFromData(final int id, final MapleData data) {
         Skill ret = new Skill(id);
-
+        System.out.println("Skill:" + id);
         boolean isBuff = false;
         final int skillType = MapleDataTool.getInt("skillType", data, -1);
         final String elem = MapleDataTool.getString("elemAttr", data, null);

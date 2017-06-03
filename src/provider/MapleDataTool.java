@@ -64,7 +64,11 @@ public class MapleDataTool {
     }
 
     public static int getInt(MapleData data) {
-        return ((Integer) data.getData()).intValue();
+        Integer subData = (Integer) data.getData();
+        if (subData == null)
+            return -1;
+        else
+            return subData;
     }
 
     public static int getInt(MapleData data, int def) {

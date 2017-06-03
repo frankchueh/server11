@@ -27,7 +27,7 @@ import tools.Pair;
 import tools.StringUtil;
 
 public class MapleItemInformationProvider {
-
+    private final String TAG = MapleItemInformationProvider.class.getSimpleName();
     private final static MapleItemInformationProvider instance = new MapleItemInformationProvider();
     protected final MapleDataProvider etcData = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("net.sf.odinms.wzpath") + "/Etc.wz"));
     protected final MapleDataProvider itemData = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("net.sf.odinms.wzpath") + "/Item.wz"));
@@ -75,7 +75,7 @@ public class MapleItemInformationProvider {
     protected final Map<Integer, Map<Integer, Map<String, Integer>>> equipIncsCache = new HashMap<Integer, Map<Integer, Map<String, Integer>>>();
     protected final Map<Integer, Map<Integer, List<Integer>>> equipSkillsCache = new HashMap<Integer, Map<Integer, List<Integer>>>();
     protected final Map<Integer, Pair<Integer, List<StructRewardItem>>> RewardItem = new HashMap<Integer, Pair<Integer, List<StructRewardItem>>>();
-    protected final Map<Byte, StructSetItem> setItems = new HashMap<Byte, StructSetItem>();
+    protected final Map<Integer, StructSetItem> setItems = new HashMap<Integer, StructSetItem>();
     protected final Map<Integer, Pair<Integer, List<Integer>>> questItems = new HashMap<Integer, Pair<Integer, List<Integer>>>();
 	protected final Map<Integer, String> faceList = new HashMap();
 	protected final Map<Integer, String> hairList = new HashMap();
@@ -94,10 +94,13 @@ public class MapleItemInformationProvider {
         SetItem itez;
         for (MapleData dat : setsData) {
             itemz = new StructSetItem();
-            itemz.setItemID = Byte.parseByte(dat.getName());
+            itemz.setItemID = Integer.parseInt(dat.getName());
             itemz.completeCount = (byte) MapleDataTool.getIntConvert("completeCount", dat, 0);
             for (MapleData level : dat.getChildByPath("ItemID")) {
-                itemz.itemIDs.add(MapleDataTool.getIntConvert(level));
+                if (level == null)
+                    continue;
+                else
+                    itemz.itemIDs.add(MapleDataTool.getIntConvert(level));
             }
             for (MapleData level : dat.getChildByPath("Effect")) {
                 itez = new SetItem();
