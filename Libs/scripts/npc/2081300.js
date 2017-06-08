@@ -21,19 +21,19 @@ function action(mode, type, selection) {
 
     if (status == 0) {
 	if (!(cm.getJob() == 311 || cm.getJob() == 321)) {
-	    cm.sendOk("Why do you want to see me? There is nothing you want to ask me.");
+	    cm.sendOk("你來找我有什麼事嗎? 我沒有什麼可以告訴你的..");
 	    cm.dispose();
 	    return;
 	} else if (cm.getPlayerStat("LVL") < 120) {
-	    cm.sendOk("You're still weak to go to bowman extreme road. If you get stronger, come back to me.");
+	    cm.sendOk("你對於終極弓箭手之路還太嫩了. 等你變強再回來找我吧.");
 	    cm.dispose();
 	    return;
 	} else {
 	    if (cm.getQuestStatus(6924) == 2) {
 		if (cm.getJob() == 311)
-		    cm.sendSimple("You're qualified to be a true bowman. \r\nDo you want job advancement?\r\n#b#L0# I want to advance to Bow Master.#l\r\n#b#L1#  Let me think for a while.#l");
+		    cm.sendSimple("你已經有足夠資格成為終極弓箭手. \r\n你想要進行第四次轉職嗎?\r\n#b#L0# 我想成為箭神.#l\r\n#b#L1#  讓我在想想.#l");
 		else
-		    cm.sendSimple("You're qualified to be a true bowman. \r\nDo you want job advancement?\r\n#b#L0# I want to advance to Cross Bowmaster.#l\r\n#b#L1#  Let me think for a while.#l");
+		    cm.sendSimple("你已經有足夠資格成為終極弓箭手. \r\n你想要進行第四次轉職嗎?\r\n#b#L0# 我想成為神射手.#l\r\n#b#L1#  讓我在想想.#l");
 	    } else {
 		cm.sendOk("You're not ready to make 4th job advancement. When you're ready, talk to me.");
 		cm.dispose();

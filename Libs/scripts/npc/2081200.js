@@ -21,21 +21,21 @@ function action(mode, type, selection) {
 
     if (status == 0) {
 	if (!(cm.getJob() == 211 || cm.getJob() == 221 || cm.getJob() == 231)) {
-	    cm.sendOk("Why do you want to see me? There is nothing you want to ask me.");
+	    cm.sendOk("你來找我有什麼事嗎? 我沒有什麼可以告訴你的.");
 	    cm.dispose();
 	    return;
 	} else if (cm.getPlayerStat("LVL") < 120) {
-	    cm.sendOk("You're still weak to go to magician extreme road. If you get stronger, come back to me.");
+	    cm.sendOk("你對於終極法師之路還太嫩了. 等你變強再回來找我吧.");
 	    cm.dispose();
 	    return;
 	} else {
 	    if (cm.getQuestStatus(6914) == 2) {
 		if (cm.getJob() == 211)
-		    cm.sendSimple("You're qualified to be a true magician. \r\nDo you want job advancement?\r\n#b#L0# I want to advance to Arch Mage.#l\r\n#b#L1#  Let me think for a while.#l");
+		    cm.sendSimple("你已經有足夠資格成為終極法師. \r\n你想要進行第四次轉職嗎?\r\n#b#L0# 我想成為大魔導士.#l\r\n#b#L1#  讓我在想想.#l");
 		else if (cm.getJob() == 221)
-		    cm.sendSimple("You're qualified to be a true magician. \r\nDo you want job advancement?\r\n#b#L0# I want to advance to Arch Mage.#l\r\n#b#L1#  Let me think for a while.#l");
+		    cm.sendSimple("你已經有足夠資格成為終極法師. \r\n你想要進行第四次轉職嗎?\r\n#b#L0# 我想成為大魔導士.#l\r\n#b#L1#  讓我在想想.#l");
 		else
-		    cm.sendSimple("You're qualified to be a true magician. \r\nDo you want job advancement?\r\n#b#L0# I want to advance to Bishop.#l\r\n#b#L1#  Let me think for a while.#l");
+		    cm.sendSimple("你已經有足夠資格成為終極法師. \r\n你想要進行第四次轉職嗎?\r\n#b#L0# 我想成為主教.#l\r\n#b#L1#  讓我在想想.#l");
 	    } else {
 		cm.sendOk("You're not ready to make 4th job advancement. When you're ready, talk to me.");
 		cm.dispose();
@@ -56,7 +56,7 @@ function action(mode, type, selection) {
 	    if (cm.canHold(2280003)) {
 		cm.gainAp(5);
 		cm.gainItem(2280003, 1);
-                    
+
 		if (cm.getJob() == 211) {
 		    cm.changeJob(212);
 		    cm.teachSkill(2121001,0,10);

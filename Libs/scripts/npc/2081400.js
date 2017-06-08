@@ -14,19 +14,19 @@ function action(mode, type, selection) {
 
     if (status == 0) {
 	if (!(cm.getJob() == 411 || cm.getJob() == 421 || cm.getJob() == 433)) {
-	    cm.sendOk("Why do you want to see me? There is nothing you want to ask me.");
+	    cm.sendOk("你來找我有什麼事嗎? 我沒有什麼可以告訴你的.");
 	    cm.safeDispose();
 	    return;
 	} else if (cm.getPlayerStat("LVL") < 120) {
-	    cm.sendOk("You're still weak to go to thief extreme road. If you get stronger, come back to me.");
+	    cm.sendOk("你對於終極盜賊之路還太嫩了. 等你變強再回來找我吧");
 	    cm.safeDispose();
 	    return;
 	} else {
 	    if (cm.getQuestStatus(6934) == 2 || cm.getJob() == 433) {
 		if (cm.getJob() == 411)
-		    cm.sendSimple("You're qualified to be a true thief. \r\nDo you want job advancement?\r\n#b#L0# I want to advance to Night Lord.#l\r\n#b#L1#  Let me think for a while.#l");
+		    cm.sendSimple("你已經有足夠資格成為終極盜賊. \r\n你想要進行第四次轉職嗎?\r\n#b#L0# 我想成為夜使者.#l\r\n#b#L1#  讓我在想想.#l");
 		else if (cm.getJob() == 421)
-		    cm.sendSimple("You're qualified to be a true thief. \r\nDo you want job advancement?\r\n#b#L0# I want to advance to Shadower.#l\r\n#b#L1#  Let me think for a while.#l");
+		    cm.sendSimple("你已經有足夠資格成為終極盜賊. \r\n你想要進行第四次轉職嗎?\r\n#b#L0# 我想成為暗影神偷.#l\r\n#b#L1#  讓我在想想.#l");
 		else {
 		    if (cm.haveItem(4031348) || cm.getQuestStatus(6934) == 2) {
 		        cm.sendSimple("You're qualified to be a true thief. \r\nDo you want job advancement?\r\n#b#L0# I want to advance to Dual Master.#l\r\n#b#L1#  Let me think for a while.#l");
@@ -35,7 +35,7 @@ function action(mode, type, selection) {
 			cm.dispose();
 			return;
 		    }
-		    
+
 		}
 	    } else {
 		cm.sendOk("You're not ready to make 4th job advancement. When you're ready, talk to me.");
