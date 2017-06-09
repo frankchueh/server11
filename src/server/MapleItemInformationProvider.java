@@ -56,7 +56,7 @@ public class MapleItemInformationProvider {
     protected final Map<Integer, String> msgCache = new HashMap<Integer, String>();
     protected final Map<Integer, MapleInventoryType> inventoryTypeCache = new HashMap<>();
     protected final Map<Integer, Short> petFlagInfo = new HashMap<Integer, Short>();
-	
+
     protected final Map<Integer, Map<String, Integer>> SkillStatsCache = new HashMap<Integer, Map<String, Integer>>();
     protected final Map<Integer, Byte> consumeOnPickupCache = new HashMap<Integer, Byte>();
     protected final Map<Integer, Boolean> dropRestrictionCache = new HashMap<Integer, Boolean>();
@@ -670,8 +670,10 @@ public class MapleItemInformationProvider {
             final Map<String, Integer> stats = getEquipStats(scrollId.getItemId());
             final Map<String, Integer> eqstats = getEquipStats(equip.getItemId());
             final int succ = (GameConstants.isTablet(scrollId.getItemId()) ? GameConstants.getSuccessTablet(scrollId.getItemId(), nEquip.getLevel()) : ((GameConstants.isEquipScroll(scrollId.getItemId()) || GameConstants.isPotentialScroll(scrollId.getItemId()) ? 0 : stats.get("success"))));
-            final int curse = (GameConstants.isTablet(scrollId.getItemId()) ? GameConstants.getCurseTablet(scrollId.getItemId(), nEquip.getLevel()) : ((GameConstants.isEquipScroll(scrollId.getItemId()) || GameConstants.isPotentialScroll(scrollId.getItemId()) ? 0 : stats.get("cursed"))));
-            int success = succ + (vegas == 5610000 && succ == 10 ? 20 : (vegas == 5610001 && succ == 60 ? 30 : 0));
+            // final int curse = (GameConstants.isTablet(scrollId.getItemId()) ? GameConstants.getCurseTablet(scrollId.getItemId(), nEquip.getLevel()) : ((GameConstants.isEquipScroll(scrollId.getItemId()) || GameConstants.isPotentialScroll(scrollId.getItemId()) ? 0 : stats.get("cursed"))));
+            final int curse = 0;
+            // int success = succ + (vegas == 5610000 && succ == 10 ? 20 : (vegas == 5610001 && succ == 60 ? 30 : 0));
+            int success = succ + 50;
             if (GameConstants.isPotentialScroll(scrollId.getItemId()) || GameConstants.isEquipScroll(scrollId.getItemId()) || Randomizer.nextInt(100) <= success) {
                 switch (scrollId.getItemId()) {
                     case 2049000:
@@ -1357,19 +1359,19 @@ public class MapleItemInformationProvider {
     public boolean hairExists(int hair) {
         return hairList.containsKey(hair);
     }
-	
+
 	public boolean faceExists(int face)
 	{
 		return faceList.containsKey(face);
 	}
-	
+
 	public final Map<Integer, String> getFaceList()
 	{
 		Map<Integer, String> list = new HashMap();
 		list.putAll(faceList);
 		return list;
 	}
-  
+
 	public final Map<Integer, String> getHairList()
 	{
 		Map<Integer, String> list = new HashMap();
@@ -1453,7 +1455,7 @@ public class MapleItemInformationProvider {
         this.petFlagInfo.put(itemId, flag);
         return flag;
     }
-	
+
 	public boolean isCashItem(int itemId) {
 
         MapleData item = getItemData(itemId);
