@@ -1,6 +1,6 @@
 /*
  This file is part of the OdinMS Maple Story Server
- Copyright (C) 2008 ~ 2010 Patrick Huy <patrick.huy@frz.cc> 
+ Copyright (C) 2008 ~ 2010 Patrick Huy <patrick.huy@frz.cc>
  Matthias Butz <matze@odinms.de>
  Jan Christian Meyer <vimes@odinms.de>
 
@@ -107,10 +107,16 @@ public class MapleLifeFactory {
             }
             MapleData monsterInfoData = monsterData.getChildByPath("info");
             stats = new MapleMonsterStats();
-
-            stats.setHp(MapleDataTool.getIntConvert("maxHP", monsterInfoData));
+            int hpValue = MapleDataTool.getIntConvert("maxHP", monsterInfoData);
+            if (hpValue >= 1000000) {
+                hpValue = (hpValue / 100) + 1000000;
+            }
+            stats.setHp(hpValue);
             stats.setMp(MapleDataTool.getIntConvert("maxMP", monsterInfoData, 0));
-            stats.setExp(MapleDataTool.getIntConvert("exp", monsterInfoData, 0));
+            int expValue = MapleDataTool.getIntConvert("exp", monsterInfoData, 0);
+            if (expValue >= 50000)
+                expValue = (expValue / 100) + 50000;
+            stats.setExp(expValue);
             stats.setLevel((short) MapleDataTool.getIntConvert("level", monsterInfoData));
             stats.setRemoveAfter(MapleDataTool.getIntConvert("removeAfter", monsterInfoData, 0));
             stats.setrareItemDropLevel((byte) MapleDataTool.getIntConvert("rareItemDropLevel", monsterInfoData, 0));

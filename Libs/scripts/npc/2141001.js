@@ -7,19 +7,19 @@ var status = -1;
 
 function start() {
 		if (cm.getPlayer().getLevel() < 120) {
-			cm.sendOk("There is a level requirement of 120 to attempt Pink Bean.");
+			cm.sendOk("你比需要到達 120 級 才能挑戰皮卡啾.");
 			cm.dispose();
 			return;
 		}
 		if (cm.getPlayer().getClient().getChannel() != 5) {
-			cm.sendOk("Pink Bean may only be attempted on channel 5.");
+			cm.sendOk("皮卡啾只會出現在頻道5.");
 			cm.dispose();
 			return;
 		}
     var em = cm.getEventManager("PinkBeanBattle");
 
     if (em == null) {
-	cm.sendOk("The event isn't started, please contact a GM.");
+	cm.sendOk("事件並未被觸發, 請告知 GM.");
 	cm.dispose();
 	return;
     }
@@ -28,18 +28,18 @@ function start() {
     var squadAvailability = cm.getSquadAvailability("PinkBean");
     if (squadAvailability == -1) {
 	status = 0;
-	cm.sendYesNo("Are you interested in becoming the leader of the expedition Squad?");
+	cm.sendYesNo("你有興趣成為皮卡啾的討伐隊長嗎?");
 
     } else if (squadAvailability == 1) {
 	// -1 = Cancelled, 0 = not, 1 = true
 	var type = cm.isSquadLeader("PinkBean");
 	if (type == -1) {
-	    cm.sendOk("The squad has ended, please re-register.");
+	    cm.sendOk("討伐隊已經結束,請重新登記.");
 	    cm.dispose();
 	} else if (type == 0) {
 	    var memberType = cm.isSquadMember("PinkBean");
 	    if (memberType == 2) {
-		cm.sendOk("You been banned from the squad.");
+		cm.sendOk("你被討伐隊列入黑名單.");
 		cm.dispose();
 	    } else if (memberType == 1) {
 		status = 5;
