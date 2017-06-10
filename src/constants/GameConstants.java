@@ -1,6 +1,6 @@
 /*
  This file is part of the OdinMS Maple Story Server
- Copyright (C) 2008 ~ 2010 Patrick Huy <patrick.huy@frz.cc> 
+ Copyright (C) 2008 ~ 2010 Patrick Huy <patrick.huy@frz.cc>
  Matthias Butz <matze@odinms.de>
  Jan Christian Meyer <vimes@odinms.de>
 
@@ -306,7 +306,7 @@ public class GameConstants {
         }
         return MapleInventoryType.getByType(type);
     }
-	
+
     public static MapleWeaponType getWeaponType(final int itemId) {
         int cat = itemId / 10000;
         cat = cat % 100;
@@ -448,7 +448,7 @@ public class GameConstants {
 	public static boolean isSpear(final int itemId){
 		return (getWeaponType(itemId) == MapleWeaponType.SPEAR) || (getWeaponType(itemId) == MapleWeaponType.POLE_ARM);
 	}
-	
+
     public static boolean isGem(final int id) {
         return id >= 4250000 && id <= 4251402;
     }
@@ -942,7 +942,7 @@ public class GameConstants {
         1072239, 1, // Yellow Snowshoe
         2049100, 1, // Chaos Scroll
     };
-	
+
 	public static int[] xmaxsReward = {
         20300223,1,
 		20300221,1,
@@ -1856,7 +1856,7 @@ public class GameConstants {
     }
 
     public static int getExpRate_Quest(final int level) {
-        return 1;
+        return 20;
     }
 
     public static String getCashBlockedMsg(final int id) {

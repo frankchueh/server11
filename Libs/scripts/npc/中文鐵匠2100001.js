@@ -226,7 +226,7 @@ function action(mode, type, selection) {
 
         if (cm.getMeso() < cost * qty)
         {
-            cm.sendOk("§Ú«Ü¿ò¾Ñ§A¨S¦³¿ìªk­t¾áªº°_§ÚªºªA°È.");
+            cm.sendOk("§Ú«Ü¿ò¾Ñ§A¨S¦³¿ìªk­t¾áªºþ§ÚªºªA°È.");
 			complete = false;
         }
         else

@@ -138,11 +138,11 @@ public class MapleQuestRequirement implements Serializable {
         switch (type) {
             case job:
                 for (Pair<Integer, Integer> a : dataStore) {
-                    if (a.getRight() == c.getJob() || c.isGM()) {
-                        return true;
+                    if (a.getRight() != c.getJob() && !c.isGM()) {
+                        return false;
                     }
                 }
-                return false;
+                return true;
             case skill: {
                 for (Pair<Integer, Integer> a : dataStore) {
                     final boolean acquire = a.getRight() > 0;

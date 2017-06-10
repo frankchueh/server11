@@ -115,7 +115,7 @@ public class MapleLifeFactory {
             stats.setMp(MapleDataTool.getIntConvert("maxMP", monsterInfoData, 0));
             int expValue = MapleDataTool.getIntConvert("exp", monsterInfoData, 0);
             if (expValue >= 50000)
-                expValue = (expValue / 100) + 50000;
+                expValue = 50000;
             stats.setExp(expValue);
             stats.setLevel((short) MapleDataTool.getIntConvert("level", monsterInfoData));
             stats.setRemoveAfter(MapleDataTool.getIntConvert("removeAfter", monsterInfoData, 0));

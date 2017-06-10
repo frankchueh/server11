@@ -11,8 +11,8 @@ function start() {
 			cm.dispose();
 			return;
 		}
-		if (cm.getPlayer().getClient().getChannel() != 5) {
-			cm.sendOk("皮卡啾只會出現在頻道5.");
+		if (cm.getPlayer().getClient().getChannel() != 1) {
+			cm.sendOk("皮卡啾只會出現在頻道1.");
 			cm.dispose();
 			return;
 		}

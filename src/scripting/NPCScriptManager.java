@@ -138,6 +138,7 @@ public class NPCScriptManager extends AbstractScriptManager {
             if (!cms.containsKey(c)) {
                 final Invocable iv = getInvocable("quest/" + quest + ".js", c, true);
                 if (iv == null) {
+                    c.getPlayer().dropMessage("[系統提示]任務腳本:" + quest + " 不存在。");
                     dispose(c);
                     return;
                 }
